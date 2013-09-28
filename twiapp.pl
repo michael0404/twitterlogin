@@ -1,12 +1,12 @@
 #!/usr/bin/env perl
-
 use Mojolicious::Lite;
 use Net::Twitter::Lite::WithAPIv1_1;
 use Plack::Builder;
 use Plack::Session;
 
-my $config = plugin('Config');
-my $nt = Net::Twitter::Lite->new(
+#my $config = plugin('Config', {file => $self->app->home->rel_file('twiapp.conf')});
+my $config = plugin 'Config';
+my $nt = Net::Twitter::Lite::WithAPIv1_1->new(
     consumer_key    => $config->{consumer_key},
     consumer_secret => $config->{consumer_secret},
 );
